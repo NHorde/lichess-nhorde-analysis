@@ -1,0 +1,1 @@
+url = https://lichess.org/api/user/{username}/rating-history
