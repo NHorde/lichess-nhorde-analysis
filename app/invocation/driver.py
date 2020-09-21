@@ -1,6 +1,6 @@
 import requests
 import os
-import json
+
 
 api_key = os.environ.get('LICHESS_OAUTH_TOKEN')
 payload = {}
@@ -17,15 +17,11 @@ resp = requests.request(
     }
 )
 
-# for i in vars(resp):
-#     print(i)
-
 resp_json = []
 ndjson = resp.content.decode().split('\n')
 
 for json_obj in ndjson:
     if json_obj:
         resp_json.append(json_obj)
-
 
 print(resp_json[-1])
