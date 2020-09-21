@@ -23,11 +23,9 @@ resp = requests.request(
 resp_json = []
 ndjson = resp.content.decode().split('\n')
 
-# for json_obj in ndjson:
-#     if json_obj:
-#         resp_json.append(json.loads(json_obj))
+for json_obj in ndjson:
+    if json_obj:
+        resp_json.append(json_obj)
 
 
-print(ndjson)
-
-
+print(resp_json[-1])
