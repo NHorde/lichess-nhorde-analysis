@@ -36,17 +36,31 @@ import json
 
 import requests, json
 
-headers = {
-    "accept":"application/x-ndjson"
-}
-
 url = "https://www.lichess.org/api/games/user/nhorde"
 
+headers = {
+    "accept":"application/x-ndjson"
+    }
+
+params = {
+    "max": 2,
+    "perfType": "rapid",
+    "analysed": "false",
+    "clocks": "false",
+    "evals": "false",
+    "opening":"true"
+    }
+
 r = requests.get(url,
-                 params={"max":1, "perfType":"rapid","analysed":"false", "clocks":"false", "evals":"false", "opening":"true"},
+                 params=params,
                  headers=headers)
+
 r_text = r.content.decode("utf-8")
 
 games = [json.loads(s) for s in r_text.split("\n")[:-1]]
 
-print(json.dumps(games, indent=3))
+# print(json.dumps(games, indent=3))
+
+print(games[1])
+
+state.game[0]
