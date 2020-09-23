@@ -34,6 +34,23 @@ class Client:
         self._opening = kwargs.get("opening", False)
         self._players = kwargs.get("players", None)
 
+
+    # <~> Actions <~>
+
+    def capture(self, variables: dict):
+        """
+        :param variables:
+        :type variables: dict
+        :rtype: Client
+        """
+    for k, v in variables.items():
+        k = underscore(k)
+
+        if hasattr(self, k) and v is not None:
+            setattr(self, k, v)
+    return self
+
+
     # <~> Properties <~>
 
     @property
