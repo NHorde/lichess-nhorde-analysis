@@ -50,3 +50,21 @@ class Client:
         if not value.isnumeric():
             LOGGER.error(f"{value} is not an integer")
         self._start_date
+
+
+    @property
+    def end_date(self):
+        """
+        :rtype:  int
+        """
+        return self._end_date
+
+    @end_date.setter
+    def end_date(self, value):
+        """
+        :param value:
+        :type value: int
+        """
+        if not value.isnumeric():
+            LOGGER.error(f"{value} is not an integer")
+        self._end_date
