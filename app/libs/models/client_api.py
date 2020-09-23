@@ -67,9 +67,12 @@ class Client:
         :param value:
         :type value: int
         """
+
         if not value.isnumeric():
             LOGGER.error(f"Start date is not an integer: {value}")
-        self._start_date
+        else:
+            start_date = int(value)
+        self._start_date = start_date
 
     @property
     def end_date(self):
@@ -86,7 +89,9 @@ class Client:
         """
         if not value.isnumeric():
             LOGGER.error(f"End date is not an integer: {value}")
-        self._end_date
+        else:
+            end_date = int(end_date)
+        self._end_date = end_date
 
     @property
     def number_games(self):
@@ -103,4 +108,6 @@ class Client:
         """
         if not value.isnumeric():
             LOGGER.error(f"Number of games is not an integer: {value}")
-        self._number_games
+        else:
+            number_games = int(number_games)
+        self._number_games = number_games
