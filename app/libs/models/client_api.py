@@ -9,8 +9,8 @@ class Client:
         self.result: str = kwargs.get("result")
 
         # Parameters
-        self._since = kwargs.get("since", None)
-        self._until = kwargs.get("until", None)
+        self._start_date = kwargs.get("start_date", None)
+        self._end_date = kwargs.get("end_date", None)
         self._max = kwargs.get("until", None)
         self._vs = kwargs.get("vs", None)
 
@@ -29,6 +29,19 @@ class Client:
         self._opening = kwargs.get("opening", False)
         self._players = kwargs.get("players", None)
 
-        @since.setter
-        def testksfg(self, value):
-            return
+    @property
+    def start_date(self):
+        """
+        :rtype:  int
+        """
+        return self._start_date
+
+    @start_date.setter
+    def start_date(self, value):
+        """
+        :param value:
+        :type value: int
+        """
+        if not value.isnumeric():
+            pass
+        self._start_date
