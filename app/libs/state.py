@@ -13,3 +13,4 @@ class State:
         """
         self.games: Games = Games(**kwargs)
         self.request: Request = Request(**kwargs)
+
