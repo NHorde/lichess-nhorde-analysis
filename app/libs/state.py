@@ -1,4 +1,4 @@
-from libs.models.games import Games
+from libs.models.client import Client
 from libs.models.request import Request
 
 class State:

@@ -1,4 +1,4 @@
-class Games:
+class Client:
     def __init__(self, **kwargs):
         """
         :param kwargs:
