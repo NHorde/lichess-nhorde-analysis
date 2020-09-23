@@ -90,7 +90,7 @@ class Client:
         if not value.isnumeric():
             LOGGER.error(f"End date is not an integer: {value}")
         else:
-            end_date = int(end_date)
+            end_date = int(value)
         self._end_date = end_date
 
     @property
@@ -109,5 +109,5 @@ class Client:
         if not value.isnumeric():
             LOGGER.error(f"Number of games is not an integer: {value}")
         else:
-            number_games = int(number_games)
+            number_games = int(value)
         self._number_games = number_games
