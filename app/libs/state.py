@@ -1,4 +1,4 @@
-from libs.models.client import Client
+from libs.models.client_api import Client
 from libs.models.request import Request
 
 class State:
