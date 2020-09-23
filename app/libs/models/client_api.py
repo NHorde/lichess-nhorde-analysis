@@ -1,4 +1,5 @@
 from libs.logger import BASE_LOGGER
+from inflection import underscore
 
 LOGGER = BASE_LOGGER.getChild(__name__)
 
