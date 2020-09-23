@@ -11,6 +11,6 @@ class State:
         :param event:
         :type even: dict
         """
-        self.games: Games = Games(**kwargs)
+        self.client: Client = Client(**kwargs)
         self.request: Request = Request(**kwargs)
 
