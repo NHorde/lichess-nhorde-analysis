@@ -43,12 +43,12 @@ class Client:
         :type variables: dict
         :rtype: Client
         """
-    for k, v in variables.items():
-        k = underscore(k)
+        for k, v in variables.items():
+            k = underscore(k)
 
-        if hasattr(self, k) and v is not None:
-            setattr(self, k, v)
-    return self
+            if hasattr(self, k) and v is not None:
+                setattr(self, k, v)
+        return self
 
 
     # <~> Properties <~>
