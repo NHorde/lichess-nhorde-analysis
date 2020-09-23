@@ -16,7 +16,7 @@ class Client:
         # Parameters
         self._start_date = kwargs.get("start_date", None)
         self._end_date = kwargs.get("end_date", None)
-        self._max = kwargs.get("until", None)
+        self._number_games = kwargs.get("number_games", None)
         self._vs = kwargs.get("vs", None)
 
         self._rated = kwargs.get("rated", None)
@@ -34,6 +34,8 @@ class Client:
         self._opening = kwargs.get("opening", False)
         self._players = kwargs.get("players", None)
 
+    # <~> Properties <~>
+
     @property
     def start_date(self):
         """
@@ -48,9 +50,8 @@ class Client:
         :type value: int
         """
         if not value.isnumeric():
-            LOGGER.error(f"{value} is not an integer")
+            LOGGER.error(f"Start date is not an integer: {value}")
         self._start_date
-
 
     @property
     def end_date(self):
@@ -66,5 +67,22 @@ class Client:
         :type value: int
         """
         if not value.isnumeric():
-            LOGGER.error(f"{value} is not an integer")
+            LOGGER.error(f"End date is not an integer: {value}")
         self._end_date
+
+    @property
+    def number_games(self):
+        """
+        :rtype:  int
+        """
+        return self._number_games
+
+    @number_games.setter
+    def number_games(self, value):
+        """
+        :param value:
+        :type value: int
+        """
+        if not value.isnumeric():
+            LOGGER.error(f"Number of games is not an integer: {value}")
+        self._number_games
