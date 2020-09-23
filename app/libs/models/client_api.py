@@ -1,3 +1,8 @@
+from libs.logger import BASE_LOGGER
+
+LOGGER = BASE_LOGGER.getChild(__name__)
+
+
 class Client:
     def __init__(self, **kwargs):
         """
@@ -43,5 +48,5 @@ class Client:
         :type value: int
         """
         if not value.isnumeric():
-            pass
+            LOGGER.error(f"{value} is not an integer")
         self._start_date
