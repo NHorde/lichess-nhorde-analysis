@@ -61,6 +61,8 @@ games = [json.loads(s) for s in r_text.split("\n")[:-1]]
 
 # print(json.dumps(games, indent=3))
 
-print(games[1])
+print(games[0])
 
-state.game[0]
+# state.game[0]
+
+
