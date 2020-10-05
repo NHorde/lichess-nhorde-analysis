@@ -8,7 +8,8 @@ LOGGER = BASE_LOGGER.getChild(__name__)
 
 def request():
 
-
+    print(state)
+    exit(1)
     url = "https://www.lichess.org/api/games/user/nhorde"
 
     headers = {
