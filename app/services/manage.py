@@ -43,7 +43,7 @@ def analysis_service(state: State):
     LOGGER.debug("Attempting to analyze Lichess games")
 
     try:
-        manager_lichess(state=state)
+        manager_analysis(state=state)
         LOGGER.info("Analysis of Lichess games successfully completed")
 
     except Exception as e:
