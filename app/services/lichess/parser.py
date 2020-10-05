@@ -27,7 +27,7 @@ def convert_to_dataframe(state: State):
     :return: dataframe
     :rtype: state
     """
-    LOGGER.info("Initializing parser")
+    LOGGER.debug("Initializing parser")
 
     try:
         # Initialization
@@ -38,7 +38,7 @@ def convert_to_dataframe(state: State):
             state.df = state.df.append(parser(state=state, row=i+1),
                            ignore_index=False)
 
-        LOGGER.info("Successfully parsed json into dataframe")
+        LOGGER.debug("Successfully parsed json into dataframe")
 
     except Exception as e:
         LOGGER.error(f"Could not parse json: {e}")
@@ -57,11 +57,12 @@ def save_dataframe(state: State):
 
     try:
         state.df.to_csv(ROOT_PATH + "/results/data.csv")
+        LOGGER.debug("Successfully saved dataframe in ../results")
 
     except Exception as e:
-        LOGGER.debug(f"Could not save dataframe file: {e}")
+        LOGGER.error(f"Could not save dataframe file: {e}")
 
-    LOGGER.info("Successfully saved dataframe in ../results")
+
 
 
 def manager(state: State):

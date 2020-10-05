@@ -15,11 +15,11 @@ def get_lichess_request(state: State):
     :return: function
     :rtype: function
     """
-    LOGGER.info("Attempting to call Lichess API")
+    LOGGER.debug("Attempting to call Lichess API")
 
     try:
         request_lichess_api(state=state)
-        LOGGER.info("Lichess API successfully called")
+        LOGGER.debug("Lichess API successfully called")
 
     except Exception as e:
         LOGGER.error(f"Lichess API request failed: {e}")
@@ -37,11 +37,11 @@ def convert_lichess_response(state: State):
     :rtype: function
     """
 
-    LOGGER.info("Attempting to parse Lichess API response")
+    LOGGER.debug("Attempting to parse Lichess API response")
 
     try:
         parse_lichess_response(state=state)
-        LOGGER.info("Lichess response successfully converts into dataframe")
+        LOGGER.debug("Lichess response successfully converts into dataframe")
 
     except Exception as e:
         LOGGER.error(f"Parsing Lichess request failed: {e}")
