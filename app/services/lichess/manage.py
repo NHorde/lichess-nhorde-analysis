@@ -6,5 +6,5 @@ LOGGER = BASE_LOGGER.getChild(__name__)
 
 
 
-def manager():
+def manager(state: State):
     request_lichess_api()
