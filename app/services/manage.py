@@ -4,15 +4,27 @@ from libs.logger import BASE_LOGGER
 
 LOGGER = BASE_LOGGER.getChild(__name__)
 
-def get_lichess_response(state: State):
+
+
+def lichess_service(state: State):
+    """
+    Request sent to Lichess API
+    :param state: state
+    :type state: state
+    :return: function
+    :rtype: function
+    """
+    LOGGER.info("Attempting to run Lichess service")
     try:
         manager_lichess(state=state)
-    except Except as e:
-        LOGGER.error(f"Lichess API manager failed: {e}")
+        LOGGER.info("Lichess service successfully run")
+
+    except Exception as e:
+        LOGGER.error(f"Lichess service manager failed: {e}")
 
 
 
 def manager(state: State):
-    get_lichess_response(state=state)
+    lichess_service(state=state)
 
 

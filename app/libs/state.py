@@ -1,5 +1,5 @@
 from libs.models.client_api import Client
-from libs.models.request import Request
+from libs.models.games import Games
 
 class State:
     _defaults = {
@@ -12,5 +12,5 @@ class State:
         :type even: dict
         """
         self.client: Client = Client(**kwargs)
-        self.request: Request = Request(**kwargs)
+        self.games: Games = Games(**kwargs)
 
