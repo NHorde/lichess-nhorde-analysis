@@ -46,7 +46,6 @@ class Client:
         """
         for k, v in variables.items():
             k = underscore(k)
-
             if hasattr(self, k) and v is not None:
                 setattr(self, k, v)
         return self
@@ -68,7 +67,7 @@ class Client:
         :type value: int
         """
 
-        if not value.isnumeric():
+        if not isinstance(value, int):
             LOGGER.error(f"Start date is not an integer: {value}")
         else:
             start_date = int(value)
@@ -87,7 +86,7 @@ class Client:
         :param value:
         :type value: int
         """
-        if not value.isnumeric():
+        if not isinstance(value, int):
             LOGGER.error(f"End date is not an integer: {value}")
         else:
             end_date = int(value)
@@ -106,7 +105,7 @@ class Client:
         :param value:
         :type value: int
         """
-        if not value.isnumeric():
+        if not isinstance(value, int):
             LOGGER.error(f"Number of games is not an integer: {value}")
         else:
             number_games = int(value)
