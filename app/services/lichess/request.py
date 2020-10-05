@@ -1,3 +1,5 @@
+from libs.state import State
+
 import requests
 import json
 
@@ -6,26 +8,17 @@ from libs.logger import BASE_LOGGER
 LOGGER = BASE_LOGGER.getChild(__name__)
 
 
-def request():
+def request(state: State):
 
-    print(state)
-    exit(1)
-    url = "https://www.lichess.org/api/games/user/nhorde"
+    url = "https://www.lichess.org/api/games/user/" + state.username
 
     headers = {
         "accept": "application/x-ndjson"
     }
 
-    params = {
-        "max": 2,
-        "perfType": "rapid",
-        "analysed": "false",
-        "clocks": "false",
-        "evals": "false",
-        "opening": "true"
-    }
+    params = state.parameters
 
-    r = requests.get(url,
+    r = requests.get(url = url,
                      params=params,
                      headers=headers)
 
