@@ -23,6 +23,7 @@ def get_lichess_request(state: State):
 
     except Exception as e:
         LOGGER.error(f"Lichess API request failed: {e}")
+
     return convert_lichess_response(state=state)
 
 
@@ -44,7 +45,6 @@ def convert_lichess_response(state: State):
 
     except Exception as e:
         LOGGER.error(f"Parsing Lichess request failed: {e}")
-
 
 
 def manager(state: State):

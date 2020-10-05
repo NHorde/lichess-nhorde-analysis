@@ -168,6 +168,7 @@ class Client:
         :return: bool
         :rtype: bool
         """
-        if not type(value) == bool:
-            LOGGER.error(f"Opening choice must be a boolean: {value}")
+        if value not in ("false", "true"):
+            LOGGER.error(f"Opening choice must be either 'false' or 'true': {value}")
+
         self._opening = value

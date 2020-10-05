@@ -57,6 +57,7 @@ def save_dataframe(state: State):
 
     try:
         state.df.to_csv(ROOT_PATH + "/results/data.csv")
+
     except Exception as e:
         LOGGER.debug(f"Could not save dataframe file: {e}")
 
