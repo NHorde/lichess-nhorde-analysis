@@ -25,6 +25,7 @@ def get_lichess_request(state: State):
         LOGGER.error(f"Lichess API request failed: {e}")
     return convert_lichess_response(state=state)
 
+
 def convert_lichess_response(state: State):
     """
     Parse lichess API info pandas dataframes
@@ -34,6 +35,7 @@ def convert_lichess_response(state: State):
     :return:function
     :rtype: function
     """
+
     LOGGER.info("Attempting to parse Lichess API response")
 
     try:

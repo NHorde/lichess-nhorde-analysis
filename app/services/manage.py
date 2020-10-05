@@ -9,12 +9,15 @@ LOGGER = BASE_LOGGER.getChild(__name__)
 def lichess_service(state: State):
     """
     Request sent to Lichess API
+
     :param state: state
     :type state: state
     :return: function
     :rtype: function
     """
+
     LOGGER.info("Attempting to run Lichess service")
+
     try:
         manager_lichess(state=state)
         LOGGER.info("Lichess service successfully run")
