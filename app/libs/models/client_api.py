@@ -150,3 +150,24 @@ class Client:
         if not type(value) == bool:
             LOGGER.error(f"Evaluation must be a boolean: {value}")
         self._analyzed = value
+
+
+    @property
+    def opening(self):
+        """
+        :return:
+        :rtype:
+        """
+        return self._opening
+
+    @opening.setter
+    def opening(self, value):
+        """
+        :param value: bool
+        :type value: bool
+        :return: bool
+        :rtype: bool
+        """
+        if not type(value) == bool:
+            LOGGER.error(f"Opening choice must be a boolean: {value}")
+        self._opening = value

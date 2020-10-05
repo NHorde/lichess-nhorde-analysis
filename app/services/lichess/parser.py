@@ -6,7 +6,7 @@ LOGGER = BASE_LOGGER.getChild(__name__)
 
 def parser(state: State):
     LOGGER.info("Initializing parser")
-
+    print(state.parameters)
     df = pd.json_normalize(state.games[0])
     print(df)
     df.to_csv("test.csv")
