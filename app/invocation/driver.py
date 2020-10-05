@@ -3,6 +3,10 @@ from libs.state import State
 from services.manage import manager as manager_services
 from libs.logger import BASE_LOGGER
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 LOGGER = BASE_LOGGER.getChild(__name__)
 
 def invoke(state: State):
@@ -29,6 +33,7 @@ def invoke(state: State):
         "evals": evals
     }
     state.parameters = parameters
+    state.username = os.getenv("USERNAME")
 
     return capture(state = state)
 

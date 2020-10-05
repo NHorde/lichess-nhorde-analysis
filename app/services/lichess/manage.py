@@ -4,7 +4,8 @@ from libs.logger import BASE_LOGGER
 
 LOGGER = BASE_LOGGER.getChild(__name__)
 
-
+def get_lichess_request(state: State):
+    request_lichess_api()
 
 def manager(state: State):
-    request_lichess_api()
+    get_lichess_request(state=state)
