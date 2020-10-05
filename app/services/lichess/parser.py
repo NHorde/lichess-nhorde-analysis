@@ -16,7 +16,7 @@ def parser(state: State, row):
     :return: dataframe
     :rtype: dataframe
     """
-    return pd.json_normalize(state.games[row])
+    return pd.json_normalize(state.games.response[row])
 
 
 def convert_to_dataframe(state: State):
@@ -31,11 +31,11 @@ def convert_to_dataframe(state: State):
 
     try:
         # Initialization
-        state.df = parser(state=state, row=0)
+        state.games.df = parser(state=state, row=0)
 
         # Loop
-        for i in range(len(state.games)-1):
-            state.df = state.df.append(parser(state=state, row=i+1),
+        for i in range(len(state.games.response)-1):
+            state.games.df = state.games.df.append(parser(state=state, row=i+1),
                            ignore_index=False)
 
         LOGGER.debug("Successfully parsed json into dataframe")
@@ -56,7 +56,7 @@ def save_dataframe(state: State):
     """
 
     try:
-        state.df.to_csv(ROOT_PATH + "/results/data.csv")
+        state.games.df.to_csv(ROOT_PATH + "/results/data.csv")
         LOGGER.debug("Successfully saved dataframe in ../results")
 
     except Exception as e:

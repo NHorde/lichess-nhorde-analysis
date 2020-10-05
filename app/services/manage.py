@@ -47,7 +47,7 @@ def analysis_service(state: State):
         LOGGER.info("Analysis of Lichess games successfully completed")
 
     except Exception as e:
-        LOGGER.debut(f"Analysis of Lichess games failed: {e}")
+        LOGGER.error(f"Analysis of Lichess games failed: {e}")
 
 
 

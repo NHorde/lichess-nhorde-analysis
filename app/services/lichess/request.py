@@ -20,13 +20,10 @@ def request(state: State):
     """
     try:
         LOGGER.debug("Sending request to Lichess API")
-
         url = "https://www.lichess.org/api/games/user/" + state.username
-
         headers = {
             "accept": "application/x-ndjson"
         }
-
         params = state.parameters
 
         r = requests.get(url = url,
@@ -34,7 +31,8 @@ def request(state: State):
                          headers=headers)
 
         r_text = r.content.decode("utf-8")
-        state.games = [json.loads(s) for s in r_text.split("\n")[:-1]]
+        state.games.response = [json.loads(s) for s in r_text.split("\n")[:-1]]
+
 
     except Exception as e:
         LOGGER.error(f"Request to Lichess API failed: {e}")
