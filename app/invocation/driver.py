@@ -35,7 +35,7 @@ def invoke(state: State):
 
     parameters = {
         "max": int(os.getenv("NUMBER_GAMES")),
-        "opening": str(os.getenv("OPENING"))
+        "opening": bool(os.getenv("OPENING"))
     }
 
     state.parameters = parameters
