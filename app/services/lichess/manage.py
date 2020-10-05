@@ -19,12 +19,14 @@ def initialization(state: State):
     start_date = 5
     end_date = 5
     color = "white"
+    evals = False
 
     parameters = {
         "number_games": number_games,
         "start_date": start_date,
         "end_date": end_date,
-        "color": color
+        "color": color,
+        "evals": evals
     }
 
     state.client.capture(variables=parameters)

@@ -130,3 +130,23 @@ class Client:
         else:
             color = underscore(value)
         self._color = color
+
+    @property
+    def analyzed(self):
+        """
+        :return: binary
+        :rtype: bool
+        """
+        return self._evals
+
+    @analyzed.setter
+    def analyzed(self, value):
+        """
+        :param value: bool
+        :type value: bool
+        :return: bool
+        :rtype: bool
+        """
+        if not type(value) == bool:
+            LOGGER.error(f"Evaluation must be a boolean: {value}")
+        self._analyzed = value
