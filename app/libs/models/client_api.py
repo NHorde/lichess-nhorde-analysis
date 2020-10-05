@@ -110,3 +110,23 @@ class Client:
         else:
             number_games = int(value)
         self._number_games = number_games
+
+
+    @property
+    def color(self):
+        """
+        :rtype:  int
+        """
+        return self._color
+
+    @color.setter
+    def color(self, value):
+        """
+        :param value:
+        :type value: int
+        """
+        if value not in ("black", "white"):
+            LOGGER.error(f"Color must be 'black' or 'white': {value}")
+        else:
+            color = underscore(value)
+        self._color = color
