@@ -1,5 +1,5 @@
 from services.lichess.request import request as request_lichess_api
-from services.lichess.parser import parser as parse_lichess_response
+from services.lichess.parser import manager as parse_lichess_response
 
 from libs.state import State
 from libs.logger import BASE_LOGGER
