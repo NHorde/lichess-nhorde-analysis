@@ -28,10 +28,11 @@ def invoke(state: State):
         "color": color,
         "evals": evals
     }
+    state.parameters = parameters
 
-    return capture(state = state, parameters = parameters)
+    return capture(state = state)
 
-def capture(state, parameters):
+def capture(state):
     """
     :param state: state
     :type state: state
@@ -41,7 +42,7 @@ def capture(state, parameters):
     :rtype: function
     """
     try:
-        state.client.capture(variables=parameters)
+        state.client.capture(variables=state.parameters)
         LOGGER.info("Parameters correctly initialized")
 
     except Exception as e:
