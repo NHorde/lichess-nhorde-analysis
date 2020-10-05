@@ -48,7 +48,7 @@ def capture(state):
     except Exception as e:
         LOGGER.debug(f"Incorrect parameters, please check .env: {e}")
 
-    return manager_services()
+    return manager_services(state=state)
 
 
 if __name__ == "__main__":
