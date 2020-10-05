@@ -5,6 +5,15 @@ from libs.logger import BASE_LOGGER
 LOGGER = BASE_LOGGER.getChild(__name__)
 
 def initialization(state: State):
+    """
+    Initialize parameters and make sure that correct type is provided
+
+    :param state: state
+    :type state: state
+    :return: function
+    :rtype: function
+    """
+
 
     number_games = 5
     start_date = 5
@@ -17,8 +26,9 @@ def initialization(state: State):
     }
 
     state.client.capture(variables=parameters)
-
+    LOGGER.info("Parameters correctly initialized")
     return request_lichess_api()
 
 def manager():
+    LOGGER.info("Beginning of script")
     initialization(state=State())
