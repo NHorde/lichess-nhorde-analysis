@@ -18,7 +18,7 @@ def plot_opening_diversity(state: State):
     # df = sns.load_dataset()
     # sns.displot(state.games.df, x="flipper_length_mm")
 
-    sns.displot(state.games.df, x="date_month")
+    sns.displot(state.games.df, x="date_year_month")
 
     plt.show()
 

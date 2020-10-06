@@ -29,6 +29,7 @@ def read_data(state: State):
 
     return processing_data(state=state)
 
+
 def processing_data(state: State):
     """
     Processing and cleaning data function

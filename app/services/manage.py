@@ -60,7 +60,7 @@ def manager(state: State):
     LOGGER.debug("Master manager initialization")
 
     if underscore(state.environment) == "plot":
-        LOGGER.debug("Bypassing API, read archive data file")
+        LOGGER.info("Bypassing API, read archive data file")
         analysis_service(state=state)
 
     else:
