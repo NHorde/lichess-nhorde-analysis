@@ -1,5 +1,5 @@
 from libs.state import State
-from services.analysis.processing import processing_data
+from services.analysis.processing import clean_data
 from libs.logger import BASE_LOGGER
 
 LOGGER = BASE_LOGGER.getChild(__name__)
@@ -15,7 +15,7 @@ def processing_data(state: State):
     LOGGER.debug("Starting data processing")
 
     try:
-        processing_data(state=state)
+        clean_data(state=state)
         LOGGER.debug("Data processed with success")
 
     except Exception as e:

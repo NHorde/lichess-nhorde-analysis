@@ -3,7 +3,7 @@ from libs.logger import BASE_LOGGER
 
 LOGGER = BASE_LOGGER.getChild(__name__)
 
-def processing_data(state: State):
+def clean_data(state: State):
     """
     Getting and processing data
 
