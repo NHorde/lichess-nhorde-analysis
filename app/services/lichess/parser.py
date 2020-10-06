@@ -3,7 +3,6 @@ from libs.logger import BASE_LOGGER
 import pandas as pd
 
 from setup import ROOT_PATH
-import os
 
 LOGGER = BASE_LOGGER.getChild(__name__)
 
@@ -49,6 +48,7 @@ def convert_to_dataframe(state: State):
 def save_dataframe(state: State):
     """
     Saving dataframe to save copy
+
     :param state: state
     :type state: state
     :return: state
@@ -56,7 +56,7 @@ def save_dataframe(state: State):
     """
 
     try:
-        state.games.df.to_csv(ROOT_PATH + "/results/data.csv")
+        state.games.df.to_csv(ROOT_PATH + "/results/raw_data.csv")
         LOGGER.debug("Successfully saved dataframe in ../results")
 
     except Exception as e:

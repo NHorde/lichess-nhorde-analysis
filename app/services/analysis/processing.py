@@ -1,6 +1,8 @@
 from libs.state import State
 from libs.logger import BASE_LOGGER
 
+from setup import ROOT_PATH
+
 from datetime import datetime
 
 LOGGER = BASE_LOGGER.getChild(__name__)
@@ -47,8 +49,26 @@ def convert_date(state: State):
     except Exception as e:
         LOGGER.error(f"Could not convert time: {e}")
 
+    return save_processed_data(state=state)
 
 
+def save_processed_data(state: State):
+    """
+    Saving processed data next to raw data for further checks
+
+    :param state: state
+    :type state: state
+    :return: state
+    :rtype: state
+    """
+    LOGGER.debug("Saving processed data")
+
+    try:
+        state.games.df.to_csv(ROOT_PATH + "/results/processed_data.csv")
+        LOGGER.debug("Successfully saved dataframe in ../results")
+
+    except Exception as e:
+        LOGGER.error(f"Could not save dataframe file: {e}")
 
 def clean_data(state: State):
     """
