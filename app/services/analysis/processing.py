@@ -21,7 +21,7 @@ def lower_columns(state: State):
     try:
         state.games.df.columns = map(str.lower, state.games.df.columns)
         state.games.df["index"] = 1
-        LOGGER.debug("Columns successfully coverted to lower cases")
+        LOGGER.debug("Columns successfully converted to lower cases")
 
     except Exception as e:
         LOGGER.error(f"Columns not converted to lower case - {e}")
@@ -45,8 +45,6 @@ def convert_date(state: State):
         # Processing date
         state.games.df['date_complete'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%Y-%m-%d"))
         state.games.df['date_year_month'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%Y-%m"))
-        state.games.df['date_year'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%Y"))
-        state.games.df['date_month'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%m"))
 
     except Exception as e:
         LOGGER.error(f"Could not convert time - {e}")
