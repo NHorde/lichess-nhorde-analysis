@@ -3,7 +3,31 @@ from services.analysis.processing import clean_data
 from services.analysis.plots import plot_models
 from libs.logger import BASE_LOGGER
 
+from setup import ROOT_PATH
+
+import pandas as pd
+
 LOGGER = BASE_LOGGER.getChild(__name__)
+
+def read_data(state: State):
+    """
+    Reading data
+
+    :param state: state
+    :type state: state
+    :return: state
+    :rtype: state
+    """
+    LOGGER.debug("Reading data")
+
+    try:
+        state.games.df = pd.read_csv(ROOT_PATH + "/results/raw_data.csv")
+        LOGGER.debug("Successfully read data")
+
+    except Exception as e:
+        LOGGER.error("Impossible to read data in /results/")
+
+    return processing_data(state=state)
 
 def processing_data(state: State):
     """
@@ -54,4 +78,4 @@ def manager(state: State):
     :return: state
     :rtype: state
     """
-    processing_data(state=state)
+    read_data(state=state)

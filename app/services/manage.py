@@ -3,8 +3,8 @@ from services.lichess.manage import manager as manager_lichess
 from services.analysis.manage import manager as manager_analysis
 from libs.logger import BASE_LOGGER
 
+from inflection import underscore
 LOGGER = BASE_LOGGER.getChild(__name__)
-
 
 
 def lichess_service(state: State):
@@ -25,8 +25,6 @@ def lichess_service(state: State):
 
     except Exception as e:
         LOGGER.error(f"Lichess service manager failed: {e}")
-
-
 
     return analysis_service(state=state)
 
@@ -50,9 +48,24 @@ def analysis_service(state: State):
         LOGGER.error(f"Analysis of Lichess games failed: {e}")
 
 
-
-
 def manager(state: State):
-    lichess_service(state=state)
+    """
+    Master manager
+
+    :param state: state
+    :type state: state
+    :return: state
+    :rtype: state
+    """
+    LOGGER.debug("Master manager initialization")
+
+    if underscore(state.environment) == "plot":
+        LOGGER.debug("Bypassing API, read archive data file")
+        analysis_service(state=state)
+
+    else:
+        LOGGER.debug("Full script called")
+        lichess_service(state=state)
+
 
 

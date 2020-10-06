@@ -19,28 +19,14 @@ def invoke(state: State):
     :rtype: function
     """
 
-    # number_games = 5
-    # start_date = 5
-    # end_date = 5
-    # color = "white"
-    # evals = False
-    #
-    # parameters = {
-    #     "number_games": number_games,
-    #     "start_date": start_date,
-    #     "end_date": end_date,
-    #     "color": color,
-    #     "evals": evals
-    # }
-
     parameters = {
         "max": int(os.getenv("NUMBER_GAMES")),
         "opening": os.getenv("OPENING")
     }
 
-
     state.parameters = parameters
     state.username = os.getenv("USERNAME")
+    state.environment = os.getenv("ENVIRONMENT")
 
     return capture(state = state)
 
