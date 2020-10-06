@@ -15,12 +15,21 @@ def plot_opening_diversity(state: State):
     :return: plot
     :rtype: plot
     """
-    # df = sns.load_dataset()
-    # sns.displot(state.games.df, x="flipper_length_mm")
 
-    sns.displot(state.games.df, x="date_year_month")
-
+    plt.figure(figsize=(10, 5))
+    chart = sns.countplot(
+        data=state.games.df,
+        x='date_year_month'
+    )
+    chart.set_xticklabels(chart.get_xticklabels()
+                          , rotation=45
+                          , horizontalalignment='right')
+    chart.invert_xaxis()
     plt.show()
+
+    # sns.displot(state.games.df, x="date_year_month")
+    #
+    # plt.show()
 
 
 def plot_models(state: State):
