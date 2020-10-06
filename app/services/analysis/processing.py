@@ -24,7 +24,7 @@ def lower_columns(state: State):
         LOGGER.debug("Columns successfully coverted to lower cases")
 
     except Exception as e:
-        LOGGER.error(f"Columns not converted to lower case: {e}")
+        LOGGER.error(f"Columns not converted to lower case - {e}")
 
     return convert_date(state=state)
 
@@ -49,7 +49,7 @@ def convert_date(state: State):
         state.games.df['date_month'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%m"))
 
     except Exception as e:
-        LOGGER.error(f"Could not convert time: {e}")
+        LOGGER.error(f"Could not convert time - {e}")
 
     return save_processed_data(state=state)
 
@@ -70,7 +70,7 @@ def save_processed_data(state: State):
         LOGGER.debug("Successfully saved dataframe in ../results")
 
     except Exception as e:
-        LOGGER.error(f"Could not save dataframe file: {e}")
+        LOGGER.error(f"Could not save dataframe file - {e}")
 
 def clean_data(state: State):
     """

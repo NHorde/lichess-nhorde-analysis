@@ -40,7 +40,7 @@ def convert_to_dataframe(state: State):
         LOGGER.debug("Successfully parsed json into dataframe")
 
     except Exception as e:
-        LOGGER.error(f"Could not parse json: {e}")
+        LOGGER.error(f"Could not parse json - {e}")
 
     return save_dataframe(state=state)
 
@@ -60,7 +60,7 @@ def save_dataframe(state: State):
         LOGGER.debug("Successfully saved dataframe in ../results")
 
     except Exception as e:
-        LOGGER.error(f"Could not save dataframe file: {e}")
+        LOGGER.error(f"Could not save dataframe file - {e}")
 
 
 

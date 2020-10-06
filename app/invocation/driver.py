@@ -44,10 +44,28 @@ def capture(state):
         LOGGER.info("Parameters correctly initialized")
 
     except Exception as e:
-        LOGGER.debug(f"Incorrect parameters, please check .env: {e}")
+        LOGGER.debug(f"Incorrect parameters, please check .env - {e}")
 
-    return manager_services(state=state)
+    return script_handler(state=state)
 
+
+def script_handler(state: State):
+    """
+    Main script
+
+    :param state: state
+    :type state: state
+    :return: state
+    :rtype: state
+    """
+    LOGGER.debug("Initializing main script")
+
+    try:
+        manager_services(state=state)
+        LOGGER.info("Main script completed, check results in ../results/")
+
+    except Exception as e:
+        LOGGER.error(f"Main script failed - {e}")
 
 if __name__ == "__main__":
     invoke(state=State())

@@ -25,7 +25,7 @@ def read_data(state: State):
         LOGGER.debug("Successfully read data")
 
     except Exception as e:
-        LOGGER.error("Impossible to read data in /results/")
+        LOGGER.error(f"Impossible to read data in /results/ - {e}")
 
     return processing_data(state=state)
 
@@ -45,7 +45,7 @@ def processing_data(state: State):
         LOGGER.debug("Data processed with success")
 
     except Exception as e:
-        LOGGER.error(f"Could not process raw date: {e}")
+        LOGGER.error(f"Could not process raw date - {e}")
 
     return plot_graphs(state=state)
 
@@ -67,7 +67,7 @@ def plot_graphs(state: State):
         LOGGER.debug("Plots created with success")
 
     except Exception as e:
-        LOGGER.error(f"Could not plot graphs: {e}")
+        LOGGER.error(f"Could not plot graphs - {e}")
 
 
 def manager(state: State):

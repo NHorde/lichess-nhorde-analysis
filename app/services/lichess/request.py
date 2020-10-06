@@ -35,4 +35,4 @@ def request(state: State):
 
 
     except Exception as e:
-        LOGGER.error(f"Request to Lichess API failed: {e}")
+        LOGGER.error(f"Request to Lichess API failed -{e}")
