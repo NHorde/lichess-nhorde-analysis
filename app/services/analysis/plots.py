@@ -1,12 +1,14 @@
 from libs.state import State
 from libs.logger import BASE_LOGGER
 
+from setup import ROOT_PATH
+
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 LOGGER = BASE_LOGGER.getChild(__name__)
 
-def plot_opening_diversity(state: State):
+def plot_game_type(state: State):
     """
     Plot openings over the months
 
@@ -15,22 +17,28 @@ def plot_opening_diversity(state: State):
     :return: plot
     :rtype: plot
     """
+    LOGGER.debug("Plotting game type over the months")
 
-    plt.figure(figsize=(10, 5))
-    chart = sns.countplot(
-        data=state.games.df,
-        x='date_year_month'
-    )
-    chart.set_xticklabels(chart.get_xticklabels()
-                          , rotation=45
-                          , horizontalalignment='right')
-    chart.invert_xaxis()
-    plt.show()
+    try:
+        plt.figure(figsize=(10, 5))
+        chart = sns.countplot(
+            data=state.games.df,
+            x='date_year_month',
+            hue='perf'
+        )
+        chart.set_xticklabels(chart.get_xticklabels()
+                              , rotation=45
+                              , horizontalalignment='right'
+                              , )
+        chart.invert_xaxis()
+        chart.set_title("Game type over the months")
+        plt.xlabel("Months")
+        plt.ylabel("# Games")
 
-    # sns.displot(state.games.df, x="date_year_month")
-    #
-    # plt.show()
+        plt.savefig(ROOT_PATH + "/results/model_1.png")
 
+    except Exception as e:
+        LOGGER.error(f"Plot 1 failed - Opening type - {e}")
 
 def plot_models(state: State):
-    plot_opening_diversity(state=state)
+    plot_game_type(state=state)
