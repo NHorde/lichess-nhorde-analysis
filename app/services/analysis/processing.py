@@ -1,6 +1,8 @@
 from libs.state import State
 from libs.logger import BASE_LOGGER
 
+from datetime import datetime
+
 LOGGER = BASE_LOGGER.getChild(__name__)
 
 def lower_columns(state: State):
@@ -32,7 +34,18 @@ def convert_date(state: State):
     :return: state
     :rtype: state
     """
+    LOGGER.debug("Converting unix epoch time into human readable date")
 
+    try:
+        # Get epoch time in seconds
+        state.games.df["createdat_sec"] = state.games.df['createdat'] / 1000
+        # Processing date
+        state.games.df['date_complete'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%Y-%m-%d"))
+        state.games.df['date_year'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%Y"))
+        state.games.df['date_month'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%m"))
+
+    except Exception as e:
+        LOGGER.error(f"Could not convert time: {e}")
 
 
 
