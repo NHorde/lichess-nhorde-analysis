@@ -20,6 +20,7 @@ def lower_columns(state: State):
 
     try:
         state.games.df.columns = map(str.lower, state.games.df.columns)
+        state.games.df["index"] = 1
         LOGGER.debug("Columns successfully coverted to lower cases")
 
     except Exception as e:

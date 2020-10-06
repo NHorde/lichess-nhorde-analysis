@@ -40,8 +40,10 @@ def plot_graphs(state: State):
     try:
         plot_models(state=state)
         LOGGER.debug("Plots created with success")
+
     except Exception as e:
         LOGGER.error(f"Could not plot graphs: {e}")
+
 
 def manager(state: State):
     """
