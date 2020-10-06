@@ -58,7 +58,7 @@ def script_handler(state: State):
     :return: state
     :rtype: state
     """
-    LOGGER.debug("Initializing main script")
+    LOGGER.info("Initializing main script")
 
     try:
         manager_services(state=state)

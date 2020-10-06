@@ -22,7 +22,7 @@ def read_data(state: State):
 
     try:
         state.games.df = pd.read_csv(ROOT_PATH + "/results/raw_data.csv")
-        LOGGER.debug("Successfully read data")
+        LOGGER.info("Successfully read data")
 
     except Exception as e:
         LOGGER.error(f"Impossible to read data in /results/ - {e}")
@@ -42,7 +42,7 @@ def processing_data(state: State):
 
     try:
         clean_data(state=state)
-        LOGGER.debug("Data processed with success")
+        LOGGER.info("Data processed with success")
 
     except Exception as e:
         LOGGER.error(f"Could not process raw date - {e}")
@@ -64,7 +64,7 @@ def plot_graphs(state: State):
 
     try:
         plot_models(state=state)
-        LOGGER.debug("Plots created with success")
+        LOGGER.info("Plots created with success")
 
     except Exception as e:
         LOGGER.error(f"Could not plot graphs - {e}")
