@@ -26,10 +26,10 @@ def plot_game_type(state: State):
             x='date_year_month',
             hue='perf'
         )
-        chart.set_xticklabels(chart.get_xticklabels()
-                              , rotation=45
-                              , horizontalalignment='right'
-                              , )
+        chart.set_xticklabels(chart.get_xticklabels(),
+                              rotation=45,
+                              horizontalalignment='right',
+                              )
         chart.invert_xaxis()
         chart.set_title("Game type over the months")
         plt.xlabel("Months")
