@@ -32,7 +32,7 @@ def plot_game_type(state: State):
                               )
         chart.invert_xaxis()
         chart.set_title("Game type over the months")
-        plt.xlabel("Months")
+        plt.xlabel("Month")
         plt.ylabel("# Games")
 
         plt.savefig(ROOT_PATH + "/results/model_1.png")
@@ -55,26 +55,35 @@ def plot_opening_diversity(state: State):
 
     try:
 
-        state.games.df2 = state.games.df.groupby(['date_year_month', 'opening.eco'])['index'].count().sort_values().groupby(level=0).tail(1)
+        # state.games.df2 = state.games.df.groupby(['date_year_month', 'opening.name'])['index'].count().sort_values().groupby(level=0).tail(1)
+        # state.games.df2 = state.games.df2.reset_index(name='nbr_games')
 
-        # plt.figure(figsize=(10, 5))
-        # chart = sns.countplot(
-        #     data=state.games.df,
-        #     x='opening.eco'
-        # )
-        # chart.set_xticklabels(chart.get_xticklabels(),
-        #                       rotation=45,
-        #                       horizontalalignment='right',
-        #                       )
+        # state.games.df2 = state.games.df.groupby(['date_year_month', 'opening.name'])['index'].count()
+        # print(state.games.df2)
+        # exit(1)
+
+        plt.figure(figsize=(10, 5))
+        chart = sns.displot(
+            data=state.games.df,
+            x='date_year_month',
+            hue='opening.eco'
+        )
+
+
+        chart.set_xticklabels(chart.get_xticklabels(),
+                              rotation=45,
+                              horizontalalignment='right',
+                              )
         # chart.invert_xaxis()
-        # chart.set_title("Game diversity")
-        # plt.xlabel("Eco")
+        # chart.set_title("Opening Diversity")
+        # plt.xlabel("Month")
         # plt.ylabel("# Games")
-        #
+        plt.show()
         # plt.savefig(ROOT_PATH + "/results/model_2.png")
 
     except Exception as e:
         LOGGER.error(f"Plot 2 failed - Opening diversity - {e}")
+
 
 def plot_models(state: State):
     plot_game_type(state=state)
