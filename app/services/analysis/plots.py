@@ -35,7 +35,7 @@ def plot_game_type(state: State):
         plt.xlabel("Month")
         plt.ylabel("# Games")
 
-        plt.savefig(ROOT_PATH + "/results/model_1.png")
+        plt.savefig(ROOT_PATH + "/results/graphs/model_1.png")
 
     except Exception as e:
         LOGGER.error(f"Plot 1 failed - Opening type - {e}")
@@ -78,8 +78,8 @@ def plot_opening_diversity(state: State):
         # chart.set_title("Opening Diversity")
         # plt.xlabel("Month")
         # plt.ylabel("# Games")
-        plt.show()
-        # plt.savefig(ROOT_PATH + "/results/model_2.png")
+        # plt.show()
+        plt.savefig(ROOT_PATH + "/results/graphs/model_2.png")
 
     except Exception as e:
         LOGGER.error(f"Plot 2 failed - Opening diversity - {e}")

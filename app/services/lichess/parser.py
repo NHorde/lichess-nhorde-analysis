@@ -56,8 +56,8 @@ def save_dataframe(state: State):
     """
 
     try:
-        state.games.df.to_csv(ROOT_PATH + "/results/raw_data.csv")
-        LOGGER.debug("Successfully saved dataframe in ../results")
+        state.games.df.to_csv(ROOT_PATH + "/results/data/raw_data.csv")
+        LOGGER.debug("Successfully saved data in ../results/data/")
 
     except Exception as e:
         LOGGER.error(f"Could not save dataframe file - {e}")
