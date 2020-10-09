@@ -21,7 +21,7 @@ def read_data(state: State):
     LOGGER.debug("Reading data")
 
     try:
-        state.games.df = pd.read_csv(ROOT_PATH + "/results/raw_data.csv")
+        state.games.df = pd.read_csv(ROOT_PATH + "/results/data/raw_data.csv")
         LOGGER.info("Successfully read data")
 
     except Exception as e:

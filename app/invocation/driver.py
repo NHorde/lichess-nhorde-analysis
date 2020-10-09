@@ -1,6 +1,6 @@
 import setup
 from libs.state import State
-from services.manage import manager as manager_services
+from services.manager import manager as manager_services
 from libs.logger import BASE_LOGGER
 
 import os

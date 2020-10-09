@@ -1,6 +1,6 @@
 from libs.state import State
-from services.lichess.manage import manager as manager_lichess
-from services.analysis.manage import manager as manager_analysis
+from services.lichess.manager import manager as manager_lichess
+from services.analysis.manager import manager as manager_analysis
 from libs.logger import BASE_LOGGER
 
 from inflection import underscore
