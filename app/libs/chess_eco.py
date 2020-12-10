@@ -131,9 +131,27 @@ def map_chess_eco(eco):
             opening_name = "Neo-Gruenfeld defence"
         if int(eco[1:3]) in list(range(80, 100)):
             opening_name = "Gruenfeld defence"
+    elif eco[0] == "E":
+        if int(eco[1:3]) in list(range(0, 1)):
+            opening_name = "Queen's pawn game"
+        if int(eco[1:3]) in list(range(1, 10)):
+            opening_name = "Catalan, closed"
+        if int(eco[1:3]) in list(range(10, 11)):
+            opening_name = "Queen's pawn game"
+        if int(eco[1:3]) in list(range(11, 12)):
+            opening_name = "Bogo-Indian defence"
+        if int(eco[1:3]) in list(range(12, 20)):
+            opening_name = "Queen's Indian defence"
+        if int(eco[1:3]) in list(range(20, 60)):
+            opening_name = "Nimzo-Indian defence"
+        if int(eco[1:3]) in list(range(60, 100)):
+            opening_name = "King's Indian defence"
     return opening_name
 
-for letter in ["A", "B", "C", "D", "E"]:
-    for i in range(0,100):
-        if map_chess_eco(eco=f"{letter}{format(i, '02d')}") == "Horde's opening":
-            print(f"Missing eco: {letter}{format(i, '02d')}")
+def check_eco_missing():
+    for letter in ["A", "B", "C", "D", "E"]:
+        for i in range(0,100):
+            if map_chess_eco(eco=f"{letter}{format(i, '02d')}") == "Horde's opening":
+                print(f"Missing eco: {letter}{format(i, '02d')}")
+
+# check_eco_missing()
