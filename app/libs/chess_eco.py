@@ -65,6 +65,8 @@ def map_chess_eco(eco):
         if int(eco[1:3]) in list(range(0, 20)):
             opening_name = "French defence"
         if int(eco[1:3]) in list(range(20, 21)):
+            opening_name = "King's pawn game"
+        if int(eco[1:3]) in list(range(21, 23)):
             opening_name = "Centre game"
         if int(eco[1:3]) in list(range(23, 25)):
             opening_name = "Bishop's opening"
@@ -86,6 +88,8 @@ def map_chess_eco(eco):
             opening_name = "Three knights game"
         if int(eco[1:3]) in list(range(47, 50)):
             opening_name = "Four knights, Scotch variation"
+        if int(eco[1:3]) in list(range(50, 51)):
+            opening_name = "King's pawn game"
         if int(eco[1:3]) in list(range(51, 53)):
             opening_name = "Evans gambit"
         if int(eco[1:3]) in list(range(53, 55)):
