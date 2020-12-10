@@ -1,9 +1,15 @@
 from os import getenv
 
 import logging
+
+# - Hiding loggers from 3rd party packages
+logging.getLogger("seaborn").setLevel(logging.WARNING)
+logging.getLogger("matplotlib").setLevel(logging.WARNING)
+
 # <~> Logging <~>
 logging.basicConfig(filename="log_history.log",
                     level=logging.INFO)
+
 # - Create handler for new log format
 HANDLER = logging.StreamHandler()
 HANDLER.setFormatter(
