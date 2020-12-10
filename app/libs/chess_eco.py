@@ -38,6 +38,14 @@ def map_chess_eco(eco):
             opening_name = "Budapest defence"
         if int(eco[1:3]) in list(range(53, 55)):
             opening_name = "Old Indian defence"
+        if eco[1:3] == "56":
+            opening_name = "Benoni defence"
+        if int(eco[1:3]) in list(range(57, 59)):
+            opening_name = "Benko gambit"
+        if int(eco[1:3]) in list(range(60, 79)):
+            opening_name = "Benoni defence"
+        if int(eco[1:3]) in list(range(80, 99)):
+            opening_name = "Dutch"
     else:
         opening_name = "Horde's opening"
     return opening_name
