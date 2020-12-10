@@ -65,7 +65,7 @@ def map_chess_eco(eco):
         opening_name = "Horde's opening"
     return opening_name
 
-print(map_chess_eco(eco="B06"))
+print(map_chess_eco(eco="B20"))
 print(list(range(6,7)))
 
 
