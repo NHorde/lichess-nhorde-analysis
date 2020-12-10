@@ -117,16 +117,16 @@ def map_chess_eco(eco):
             opening_name = "Queen's Gambit Declined Slav, Czech defence"
         if int(eco[1:3]) in list(range(20, 30)):
             opening_name = "Queen's gambit accepted"
-        if int(eco[1:3]) in list(range(30, 42)):
+        if int(eco[1:3]) in list(range(30, 43)):
             opening_name = "Queen's gambit declined"
-        if int(eco[1:3]) in list(range(51, 53)):
-            opening_name = "Evans gambit"
-        if int(eco[1:3]) in list(range(53, 55)):
-            opening_name = "Giuoco Piano"
-        if int(eco[1:3]) in list(range(55, 60)):
-            opening_name = "Two knights defence"
-        if int(eco[1:3]) in list(range(60, 100)):
-            opening_name = "Ruy Lopez (Spanish opening)"
+        if int(eco[1:3]) in list(range(43, 50)):
+            opening_name = "EQueen's Gambit Declined semi-Slav"
+        if int(eco[1:3]) in list(range(50, 70)):
+            opening_name = "Queen's Gambit Declined, 4.Bg5"
+        if int(eco[1:3]) in list(range(70, 80)):
+            opening_name = "Neo-Gruenfeld defence"
+        if int(eco[1:3]) in list(range(80, 100)):
+            opening_name = "Gruenfeld defence"
     return opening_name
 
 for letter in ["A", "B", "C", "D", "E"]:
