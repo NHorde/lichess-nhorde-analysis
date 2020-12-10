@@ -54,31 +54,21 @@ def plot_opening_diversity(state: State):
     LOGGER.debug("Plotting game type over the months")
 
     try:
-
-        # state.games.df2 = state.games.df.groupby(['date_year_month', 'opening.name'])['index'].count().sort_values().groupby(level=0).tail(1)
-        # state.games.df2 = state.games.df2.reset_index(name='nbr_games')
-
-        # state.games.df2 = state.games.df.groupby(['date_year_month', 'opening.name'])['index'].count()
-        # print(state.games.df2)
-        # exit(1)
-
         plt.figure(figsize=(10, 5))
-        chart = sns.displot(
+        chart = sns.countplot(
             data=state.games.df,
-            x='date_year_month',
-            hue='opening.eco'
+            x='opening.eco',
+            hue='perf'
         )
-
-
         chart.set_xticklabels(chart.get_xticklabels(),
                               rotation=45,
                               horizontalalignment='right',
                               )
-        # chart.invert_xaxis()
-        # chart.set_title("Opening Diversity")
-        # plt.xlabel("Month")
-        # plt.ylabel("# Games")
-        # plt.show()
+        chart.invert_xaxis()
+        chart.set_title("Game type over the months")
+        plt.xlabel("Game ECO")
+        plt.ylabel("# Games")
+
         plt.savefig(ROOT_PATH + "/results/graphs/model_2.png")
 
     except Exception as e:
