@@ -1,5 +1,6 @@
 from libs.state import State
 from libs.logger import BASE_LOGGER
+from libs.chess_eco import map_chess_eco
 
 from setup import ROOT_PATH
 
@@ -50,8 +51,25 @@ def convert_date(state: State):
     except Exception as e:
         LOGGER.error(f"Could not convert time - {e}")
 
-    return save_processed_data(state=state)
+    return add_eco_opening_name(state=state)
 
+def add_eco_opening_name(state: State):
+    """
+    Adding aggregate mapping for ECO opening
+
+    :param state: state
+    :type state: state
+    :return: state
+    :rtype: state
+    """
+    LOGGER.debug("Creating aggregate opening name")
+    try:
+        state.games.df["opening.name.aggregate"] = state.games.df["opening.eco"].apply(map_chess_eco)
+
+    except Exception as e:
+        LOGGER.error(f"Could not aggregate opening name - {e}")
+
+    return save_processed_data(state=state)
 
 def save_processed_data(state: State):
     """

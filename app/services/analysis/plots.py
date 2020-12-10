@@ -20,7 +20,7 @@ def plot_game_type(state: State):
     LOGGER.debug("Plotting game type over the months")
 
     try:
-        plt.figure(figsize=(10, 5))
+        plt.figure(figsize=(15, 12))
         chart = sns.countplot(
             data=state.games.df,
             x='date_year_month',
@@ -54,10 +54,10 @@ def plot_opening_diversity(state: State):
     LOGGER.debug("Plotting game type over the months")
 
     try:
-        plt.figure(figsize=(10, 5))
+        plt.figure(figsize=(15, 12))
         chart = sns.countplot(
             data=state.games.df,
-            x='opening.eco',
+            x='opening.name.aggregate',
             hue='perf'
         )
         chart.set_xticklabels(chart.get_xticklabels(),

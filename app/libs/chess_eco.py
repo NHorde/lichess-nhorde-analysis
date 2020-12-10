@@ -149,6 +149,12 @@ def map_chess_eco(eco):
     return opening_name
 
 def check_eco_missing():
+    """
+    Checking if any ECO code is missing
+
+    :return:
+    :rtype:
+    """
     for letter in ["A", "B", "C", "D", "E"]:
         for i in range(0,100):
             if map_chess_eco(eco=f"{letter}{format(i, '02d')}") == "Horde's opening":
