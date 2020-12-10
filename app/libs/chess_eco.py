@@ -1,6 +1,6 @@
 def map_chess_eco(eco):
     """
-    Returning opening name
+    Returning opening name base on ECO number
 
     :param eco: string
     :type eco: string
@@ -22,6 +22,22 @@ def map_chess_eco(eco):
             opening_name = "English opening"
         if int(eco[1:3]) in list(range(40,41)):
             opening_name = "Queen's opening"
+        if eco[1:3] == "42":
+            opening_name = "Modern defence, Averbakh system"
+        if int(eco[1:3]) in list(range(43,44)):
+            opening_name = "Old Benoni Defence"
+        if int(eco[1:3]) in list(range(45,46)):
+            opening_name = "Queen's pawn game"
+        if eco[1:3] == "47":
+            opening_name = "Queen's Indian defence"
+        if int(eco[1:3]) in list(range(48, 49)):
+            opening_name = "King's Indian, East Indian defence"
+        if eco[1:3] == "50":
+            opening_name = "Queen's pawn game"
+        if int(eco[1:3]) in list(range(51, 52)):
+            opening_name = "Budapest defence"
+        if int(eco[1:3]) in list(range(53, 55)):
+            opening_name = "Old Indian defence"
     else:
         opening_name = "Horde's opening"
     return opening_name
