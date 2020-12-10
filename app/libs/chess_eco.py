@@ -61,11 +61,41 @@ def map_chess_eco(eco):
             opening_name = "Caro-Kahn defence"
         if int(eco[1:3]) in list(range(20, 100)):
             opening_name = "Sicilian defence"
+    if eco[0] == "C":
+        if int(eco[1:3]) in list(range(0, 20)):
+            opening_name = "French defence"
+        if int(eco[1:3]) in list(range(20, 21)):
+            opening_name = "Centre game"
+        if int(eco[1:3]) in list(range(23, 25)):
+            opening_name = "Bishop's opening"
+        if int(eco[1:3]) in list(range(25, 30)):
+            opening_name = "Vienna game"
+        if int(eco[1:3]) in list(range(30, 40)):
+            opening_name = "King's gambit"
+        if int(eco[1:3]) in list(range(40, 41)):
+            opening_name = "King's knight opening"
+        if int(eco[1:3]) in list(range(41, 42)):
+            opening_name = "Philidor's defence"
+        if int(eco[1:3]) in list(range(42, 44)):
+            opening_name = "Petrov's defence"
+        if int(eco[1:3]) in list(range(44, 45)):
+            opening_name = "King's pawn game"
+        if int(eco[1:3]) in list(range(45, 46)):
+            opening_name = "Scotch game"
+        if int(eco[1:3]) in list(range(46, 47)):
+            opening_name = "Three knights game"
+        if int(eco[1:3]) in list(range(25, 30)):
+            opening_name = "Vienna game"
+        if int(eco[1:3]) in list(range(30, 40)):
+            opening_name = "King's gambit"
+        if int(eco[1:3]) in list(range(40, 41)):
+            opening_name = "King's knight opening"
+        if int(eco[1:3]) in list(range(41, 42)):
+            opening_name = "Philidor's defence"
     else:
         opening_name = "Horde's opening"
     return opening_name
 
-print(map_chess_eco(eco="B20"))
-print(list(range(6,7)))
+print(map_chess_eco(eco="B99"))
 
 
