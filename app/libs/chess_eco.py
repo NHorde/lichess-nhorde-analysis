@@ -94,6 +94,39 @@ def map_chess_eco(eco):
             opening_name = "Two knights defence"
         if int(eco[1:3]) in list(range(60, 100)):
             opening_name = "Ruy Lopez (Spanish opening)"
+    elif eco[0] == "D":
+        if int(eco[1:3]) in list(range(0, 1)):
+            opening_name = "Queen's pawn game"
+        if int(eco[1:3]) in list(range(1, 2)):
+            opening_name = "Richter-Veresov attack"
+        if int(eco[1:3]) in list(range(2, 3)):
+            opening_name = "Queen's pawn game"
+        if int(eco[1:3]) in list(range(3, 4)):
+            opening_name = "Torre attack (Tartakower variation)"
+        if int(eco[1:3]) in list(range(4, 6)):
+            opening_name = "Queen's pawn game"
+        if int(eco[1:3]) in list(range(6, 7)):
+            opening_name = "Queen's gambit"
+        if int(eco[1:3]) in list(range(7, 10)):
+            opening_name = "Queen's Gambit Declined, Chigorin defence"
+        if int(eco[1:3]) in list(range(10, 16)):
+            opening_name = "Queen's Gambit Declined Slav defence"
+        if int(eco[1:3]) in list(range(16, 17)):
+            opening_name = "Queen's Gambit Slav accepted, Alapin variation"
+        if int(eco[1:3]) in list(range(17, 20)):
+            opening_name = "Queen's Gambit Declined Slav, Czech defence"
+        if int(eco[1:3]) in list(range(20, 30)):
+            opening_name = "Queen's gambit accepted"
+        if int(eco[1:3]) in list(range(30, 42)):
+            opening_name = "Queen's gambit declined"
+        if int(eco[1:3]) in list(range(51, 53)):
+            opening_name = "Evans gambit"
+        if int(eco[1:3]) in list(range(53, 55)):
+            opening_name = "Giuoco Piano"
+        if int(eco[1:3]) in list(range(55, 60)):
+            opening_name = "Two knights defence"
+        if int(eco[1:3]) in list(range(60, 100)):
+            opening_name = "Ruy Lopez (Spanish opening)"
     return opening_name
 
 for letter in ["A", "B", "C", "D", "E"]:
