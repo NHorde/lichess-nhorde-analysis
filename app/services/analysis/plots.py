@@ -40,9 +40,9 @@ def plot_game_type(state: State):
     except Exception as e:
         LOGGER.error(f"Plot 1 failed - Opening type - {e}")
 
-    return plot_opening_diversity(state=state)
+    return plot_opening_diversity_2020(state=state)
 
-def plot_opening_diversity(state: State):
+def plot_opening_diversity_2020(state: State):
     """
     Plot opening diversity over the months
 
@@ -54,18 +54,21 @@ def plot_opening_diversity(state: State):
     LOGGER.debug("Plotting game type over the months")
 
     try:
+        df = state.games.df.loc[state.games.df["date_year"] == "2020"]
+
         plt.figure(figsize=(15, 12))
         chart = sns.countplot(
-            data=state.games.df,
+            data=df,
             x='opening.name.aggregate',
-            hue='perf'
+            hue='perf',
+            order=df["opening.name.aggregate"].value_counts().iloc[:20].index
         )
         chart.set_xticklabels(chart.get_xticklabels(),
                               rotation=45,
                               horizontalalignment='right',
                               )
         chart.invert_xaxis()
-        chart.set_title("Game type over the months")
+        chart.set_title("Game type in 2020")
         plt.xlabel("Game ECO")
         plt.ylabel("# Games")
 
