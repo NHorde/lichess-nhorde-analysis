@@ -8,7 +8,7 @@ def map_chess_eco(eco):
     :rtype: string
     """
     eco = str(eco)
-    opening_name = ""
+    opening_name = "Horde's opening"
     if eco[0] == "A":
         if eco[1:3] == "00":
             opening_name = "Polish (Sokolsky) opening"
@@ -46,7 +46,7 @@ def map_chess_eco(eco):
             opening_name = "Benoni defence"
         if int(eco[1:3]) in list(range(80, 100)):
             opening_name = "Dutch"
-    if eco[0] == "B":
+    elif eco[0] == "B":
         if int(eco[1:3]) in list(range(0, 1)):
             opening_name = "King's pawn opening"
         if int(eco[1:3]) in list(range(1, 2)):
@@ -61,7 +61,7 @@ def map_chess_eco(eco):
             opening_name = "Caro-Kahn defence"
         if int(eco[1:3]) in list(range(20, 100)):
             opening_name = "Sicilian defence"
-    if eco[0] == "C":
+    elif eco[0] == "C":
         if int(eco[1:3]) in list(range(0, 20)):
             opening_name = "French defence"
         if int(eco[1:3]) in list(range(20, 21)):
@@ -94,19 +94,9 @@ def map_chess_eco(eco):
             opening_name = "Two knights defence"
         if int(eco[1:3]) in list(range(60, 100)):
             opening_name = "Ruy Lopez (Spanish opening)"
-    else:
-        opening_name = "Horde's opening"
     return opening_name
 
-print(map_chess_eco(eco="A00"))
-print(map_chess_eco(eco="A01"))
-print(map_chess_eco(eco="A02"))
-print(map_chess_eco(eco="A03"))
-print(map_chess_eco(eco="A04"))
-print(map_chess_eco(eco="A05"))
-print(map_chess_eco(eco="A06"))
-print(map_chess_eco(eco="A07"))
-print(map_chess_eco(eco="A08"))
-print(map_chess_eco(eco="A09"))
-
-
+for letter in ["A", "B", "C", "D", "E"]:
+    for i in range(0,100):
+        if map_chess_eco(eco=f"{letter}{format(i, '02d')}") == "Horde's opening":
+            print(f"Missing eco: {letter}{format(i, '02d')}")
