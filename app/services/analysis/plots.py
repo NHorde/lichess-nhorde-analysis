@@ -42,6 +42,7 @@ def plot_game_type(state: State):
 
     return plot_opening_diversity_2020(state=state)
 
+
 def plot_opening_diversity_2020(state: State):
     """
     Plot opening diversity over the months
@@ -76,6 +77,11 @@ def plot_opening_diversity_2020(state: State):
 
     except Exception as e:
         LOGGER.error(f"Plot 2 failed - Opening diversity - {e}")
+
+    # return time_played(state=state)
+
+
+# def time_played(state: State):
 
 
 def plot_models(state: State):

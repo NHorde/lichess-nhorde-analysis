@@ -70,6 +70,29 @@ def add_eco_opening_name(state: State):
     except Exception as e:
         LOGGER.error(f"Could not aggregate opening name - {e}")
 
+    return process_time_played(state=state)
+
+def process_time_played(state: State):
+    """
+    Process total time played during the game
+
+    :param state: state
+    :type state: state
+    :return: state
+    :rtype: state
+    """
+    LOGGER.debug("Process total time played")
+
+    try:
+        # In milliseconds, get minutes
+        state.games.df["total.time.epoch"] = state.games.df["lastmoveat"] - state.games.df["createdat"]
+        state.games.df["total.time.minutes"] = (state.games.df["lastmoveat"] - state.games.df["createdat"]) / 1000 / 60
+        state.games.df["total.time.hours"] = state.games.df["total.time.minutes"] / 60
+        state.games.df["total.time.hours"] = state.games.df["total.time.hours"].apply(lambda x: round(x,2))
+
+    except Exception as e:
+        LOGGER.error(f"Could not process total time played - {e}")
+
     return save_processed_data(state=state)
 
 def save_processed_data(state: State):
