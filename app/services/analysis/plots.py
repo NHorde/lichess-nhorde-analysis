@@ -78,11 +78,43 @@ def plot_opening_diversity_2020(state: State):
     except Exception as e:
         LOGGER.error(f"Plot 2 failed - Opening diversity - {e}")
 
-    # return time_played(state=state)
+    return time_played(state=state)
 
 
-# def time_played(state: State):
+def time_played(state: State):
+    """
+      Plot opening diversity over the months
 
+      :param state: state
+      :type state: state
+      :return: plot
+      :rtype: plot
+      """
+    LOGGER.debug("Plotting game type over the months")
+
+    try:
+        df = state.games.df
+
+        plt.figure(figsize=(15, 15))
+        chart = sns.barplot(
+            data=df,
+            x='date_month',
+            y='total.time.hours',
+            hue='date_year',
+        )
+        chart.set_xticklabels(chart.get_xticklabels(),
+                              rotation=40,
+                              horizontalalignment='right',
+                              )
+        chart.invert_xaxis()
+        chart.set_title("Time Played")
+        plt.xlabel("Month")
+        plt.ylabel("Total hours")
+
+        plt.savefig(ROOT_PATH + "/results/graphs/model_3.png")
+
+    except Exception as e:
+        LOGGER.error(f"Plot 3 failed - Total time played - {e}")
 
 def plot_models(state: State):
     plot_game_type(state=state)
