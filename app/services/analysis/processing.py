@@ -47,6 +47,7 @@ def convert_date(state: State):
         # Processing date
         state.games.df['date_complete'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%Y-%m-%d"))
         state.games.df['date_year_month'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%Y-%m"))
+        state.games.df['date_month'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%m"))
         state.games.df['date_year'] = state.games.df["createdat_sec"].apply(lambda x: datetime.fromtimestamp(x).strftime("%Y"))
 
     except Exception as e:
@@ -108,7 +109,7 @@ def save_processed_data(state: State):
 
     try:
         state.games.df.to_csv(ROOT_PATH + "/results/processed_data.csv")
-        LOGGER.debug("Successfully saved dataframe in ../results")
+        LOGGER.info("Successfully saved dataframe in ../results")
 
     except Exception as e:
         LOGGER.error(f"Could not save dataframe file - {e}")
