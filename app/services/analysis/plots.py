@@ -57,7 +57,7 @@ def plot_opening_diversity_2020(state: State):
     try:
         df = state.games.df.loc[state.games.df["date_year"] == "2020"]
 
-        plt.figure(figsize=(15, 12))
+        plt.figure(figsize=(15, 15))
         chart = sns.countplot(
             data=df,
             x='opening.name.aggregate',
@@ -65,7 +65,7 @@ def plot_opening_diversity_2020(state: State):
             order=df["opening.name.aggregate"].value_counts().iloc[:20].index
         )
         chart.set_xticklabels(chart.get_xticklabels(),
-                              rotation=45,
+                              rotation=40,
                               horizontalalignment='right',
                               )
         chart.invert_xaxis()
