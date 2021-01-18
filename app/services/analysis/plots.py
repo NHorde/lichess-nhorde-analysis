@@ -93,20 +93,24 @@ def time_played(state: State):
     LOGGER.debug("Plotting game type over the months")
 
     try:
-        df = state.games.df
+        df = state.games.df.loc[(state.games.df["perf"] == "classical") | (state.games.df["perf"] == "blitz") | (state.games.df["perf"] == "rapid")]
 
-        plt.figure(figsize=(15, 15))
+
+        month_order = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        plt.figure(figsize=(10, 10))
         chart = sns.barplot(
             data=df,
             x='date_month',
             y='total.time.hours',
             hue='date_year',
+            ci=None,
+            order=month_order,
+            estimator=sum
         )
         chart.set_xticklabels(chart.get_xticklabels(),
                               rotation=40,
                               horizontalalignment='right',
                               )
-        chart.invert_xaxis()
         chart.set_title("Time Played")
         plt.xlabel("Month")
         plt.ylabel("Total hours")
